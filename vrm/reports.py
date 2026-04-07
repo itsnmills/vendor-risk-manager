@@ -991,7 +991,7 @@ def generate_vendor_risk_card(
         for i, (ck_label, ck_val) in enumerate(checks):
             ck_y = y - 32 - i * 11
             ck_color = GREEN if ck_val else RED
-            ck_sym = "●" if ck_val else "○"
+            ck_sym = "+" if ck_val else "-"
             c.setFont(HEADING_FONT, 7.5)
             c.setFillColor(ck_color)
             c.drawString(cx_start, ck_y, f"{ck_sym} {ck_label}")
