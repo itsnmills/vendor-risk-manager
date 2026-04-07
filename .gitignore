@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+data/
+reports/
+output/
+*.pdf
+.env
+*.egg-info/
+dist/
+build/
+fonts/
+test_reports.py

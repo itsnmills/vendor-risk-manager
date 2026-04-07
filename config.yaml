@@ -1,0 +1,30 @@
+# ============================================================================
+# Vendor Risk Manager — Organization Configuration
+# VerifAI Security | https://github.com/verifai-security/vendor-risk-manager
+# ============================================================================
+
+# Organization Information
+org_name: "Your Healthcare Organization"
+org_type: "covered_entity"          # covered_entity | business_associate | hybrid
+contact_email: "security@example.com"
+hipaa_security_official: "Jane Doe"
+
+# Risk Management Settings
+risk_tolerance: "moderate"           # conservative | moderate | aggressive
+baa_renewal_warning_days: 90         # Days before BAA expiration to trigger alerts
+verification_frequency: "annual"     # annual | semi-annual | quarterly
+
+# Storage
+data_dir: "./data"                   # Directory for JSON data files
+
+# Scoring Thresholds (override defaults)
+# scoring:
+#   critical_threshold: 70
+#   high_threshold: 50
+#   medium_threshold: 30
+
+# Assessment Defaults
+# assessment:
+#   default_remediation_days: 90
+#   auto_generate_findings: true
+#   require_evidence: false

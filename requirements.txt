@@ -1,0 +1,4 @@
+reportlab>=4.0
+pyyaml
+tqdm
+colorama
