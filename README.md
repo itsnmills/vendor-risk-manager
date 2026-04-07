@@ -200,6 +200,90 @@ This tool specifically addresses the upcoming HIPAA Security Rule changes:
 
 No cloud services. No API keys. No database servers. Everything runs locally with JSON file storage.
 
+
+---
+
+## System Requirements
+
+| Requirement | Details |
+|---|---|
+| **Python** | 3.10 or higher ([python.org](https://www.python.org/downloads/)) |
+| **pip** | Included with Python — used to install dependencies |
+| **Operating System** | Windows, macOS, or Linux |
+| **Disk Space** | ~30 MB (including dependencies) |
+| **RAM** | 256 MB minimum |
+| **Network** | Not required — runs entirely offline |
+
+### Installation
+
+```bash
+git clone https://github.com/itsnmills/vendor-risk-manager.git
+cd vendor-risk-manager
+pip install -r requirements.txt
+```
+
+### Dependencies
+
+All dependencies are standard, widely-used Python packages:
+
+| Package | What It Does | Why It's Needed |
+|---|---|---|
+| `reportlab` | PDF generation | Creates professional vendor risk cards, executive reports, attestation documents, and remediation trackers |
+| `pyyaml` | YAML parsing | Reads the 125-question assessment definitions and configuration files |
+| `tqdm` | Progress bars | Shows progress during assessment processing and report generation |
+| `colorama` | Terminal colors | Color-coded risk levels and status indicators in CLI output |
+
+---
+
+## What This Tool Accesses On Your System
+
+This tool runs 100% locally on your machine. Here is exactly what it reads, writes, and accesses:
+
+| What | Access Type | Details |
+|---|---|---|
+| **Local JSON data files** | Read/Write | Vendor profiles, assessment responses, and BAA records are stored as JSON files in the project directory. You own these files completely. |
+| **Local filesystem** | Write | PDF reports are saved to the `reports/` directory inside the project folder. |
+| **No external APIs** | None | This tool makes zero outbound network requests. No vendor data, assessment results, or risk scores are sent anywhere. |
+| **No telemetry** | None | No analytics, tracking, crash reporting, or phone-home behavior of any kind. |
+| **No database server** | None | Data is stored in flat JSON files — no MySQL, PostgreSQL, or other database installation required. |
+
+**In demo mode:** The tool generates 8 realistic but entirely fictional healthcare vendor profiles (fake company names, fake assessment scores, fake BAA details). No real vendor or organizational data is involved.
+
+---
+
+## Privacy & Open Source Transparency
+
+**This is open-source software. You download it, you run it, you own it.**
+
+| Concern | Answer |
+|---|---|
+| **Can the developer see my data?** | No. This tool runs entirely on your machine. The developer (or anyone else) has zero access to your data, your results, or your system. |
+| **Does it phone home?** | No. There are no analytics, telemetry, crash reporting, update checks, or network calls of any kind. |
+| **Is my data stored in the cloud?** | No. All data stays on your local machine in files you can inspect, move, back up, or delete at any time. |
+| **Can I audit the code?** | Yes. Every line of source code is available in this repository. The MIT license gives you the right to use, modify, and distribute it. |
+| **Is it safe to use with real organizational data?** | Yes — but as with any tool, follow your organization's data handling policies. Since everything runs locally, your data never leaves your control. |
+
+> **If you're evaluating this tool for your organization:** Download it, review the source code, run the demo mode first, and verify for yourself that it meets your security requirements. That's the entire point of open source.
+
+## Keeping Threat Intelligence & Regulatory Data Current
+
+The 125 assessment questions are triple-mapped to:
+- **HIPAA Security Rule** (45 CFR §164, including 2025 NPRM amendments)
+- **NIST Cybersecurity Framework (CSF)**
+- **HITRUST CSF**
+
+60 questions are flagged for the new 2025 HIPAA mandatory requirements (MFA, encryption, 24-hour notification, etc.). These regulatory mappings are embedded in the source code. When regulations are updated, the repository will be updated accordingly:
+
+```bash
+git pull origin main
+```
+
+---
+
+## Security
+
+If you discover a security vulnerability in this tool, please report it responsibly by opening a GitHub issue or contacting the maintainer directly. Do not submit PHI or real patient data in bug reports.
+
 ## License
 
 MIT License — Free for personal, commercial, and institutional use.
